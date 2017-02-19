@@ -1,0 +1,28 @@
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+  <title> Socket Test </title>
+  <script type='text/javascript'>
+  var socket;
+  function onLoad() {
+    socket = io.connect();
+    socket.on('timer', function(data) {
+      document.getElementbyId('timer').innerHTML = data;
+    });
+  };
+  function submitData() {
+    var data = document.getElementbyId('inputtext').value;
+    socket.emit('submit', data);
+  };
+
+  </script>
+</head>
+
+<body onload = onLoad();>
+<h1> Using Socket.io </h1>
+<p> Timer : <span id='timer'></span></p>
+<p> Data : <input type='text' id='inputtext'/>
+  <input type='button' onClick='submitData()'>
+</p>
+</body>
+</html>
