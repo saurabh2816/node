@@ -1,5 +1,5 @@
 var http = require('http');
-var socket = require('../usr/local/lib/node_modules/socket.io');
+var socket = require('socket.io');
 var fs = require('fs');
 
 var app = http.createServer(function(req, res) { //handler does nothing but regardless of any url it returns index.html, it doesn't even looks at the request (req)
